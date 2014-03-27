@@ -11,6 +11,7 @@ from brave.core.application.controller.browse import BrowseController
 from brave.core.application.controller.manage import ManagementController
 from brave.core.application.model import ApplicationGrant
 from brave.core.util.predicate import authorize, authenticated
+from brave.core.notimplemented.controller import Notimplemented
 
 
 log = __import__('logging').getLogger(__name__)
@@ -70,4 +71,7 @@ class GrantController(Controller):
     
     def __lookup__(self, grant, *args, **kw):
         request.path_info_pop()  # We consume a single path element.
-        return GrantInterface(grant), args
+        try:
+            return GrantInterface(grant), args
+        except:
+            return Notimplemented(), args

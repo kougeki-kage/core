@@ -118,6 +118,9 @@ class RootController(StartupMixIn, Controller):
     character = util.load('character')
     application = util.load('application')
     api = util.load('api')
+    group = util.load('notimplemented')
+    admin = util.load('notimplemented')
+    help = util.load('notimplemented')
     
     def __init__(self, *args, **kw):
         super(RootController, self).__init__(*args, **kw)

@@ -9,6 +9,7 @@ from web.core.locale import _
 from brave.core.account.model import User
 from brave.core.account.form import authenticate as authenticate_form, register as register_form
 from brave.core.account.authentication import lookup
+from brave.core.notimplemented.controller import Notimplemented
 
 from yubico import yubico, yubico_exceptions
 from marrow.util.convert import boolean
@@ -153,6 +154,7 @@ class AccountController(Controller):
     authenticate = Authenticate()
     register = Register()
     settings = Settings()
+    index = Notimplemented()
     
     def exists(self, **query):
         query.pop('ts', None)
